@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def login
+  def create
     user = User.find_by(screen_name: params[:screen_name])
     render(json: { status: 400, message: 'not found' }) && return unless user
     if user.login(params[:password])

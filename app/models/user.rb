@@ -14,8 +14,6 @@ class User < ApplicationRecord
 
   # login function
   def login(password)
-    # if auth_token has already exist, return auth_token
-    return auth_token if auth_token
     # if auth_token has not exist, authenticate by password
     # if user is authorized, generate auth token and return true.
     # unless user is authorized, return false
