@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(screen_name: params[:screen_name])
     render(json: { status: 400, message: 'not found' }) && return unless user
     if user.login(params[:password])
-      render json: { status: 200, data: { auth_token: user.auth_token } }
+      render json: { status: 200, data: user }
     else
       render json: { status: 400, message: 'password is incorrect.' }
     end
